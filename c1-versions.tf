@@ -8,11 +8,20 @@ terraform {
     }
   }
 }
+  # Update Terraform Cloud Backend Block Information below
+ 
+  backend "remote" {
+    organization = "ranjani-hcta-demo1"
+
+    workspaces {
+      name = "cli-driven-demo"
+    }
+  }
+
 
 # Provider Block
 provider "aws" {
   region  = var.aws_region
-  profile = "default"
 }
 /*
 Note-1:  AWS Credentials Profile (profile = "default") configured on your local desktop terminal  
